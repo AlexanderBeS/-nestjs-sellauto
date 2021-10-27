@@ -1,5 +1,5 @@
 ### Create a user
-POST http://localhost:3000//auth/signup
+POST http://localhost:3000/auth/signup
 Content-Type: application/json
 
 {
@@ -7,5 +7,19 @@ Content-Type: application/json
   "password": "qwerty"
 }
 
-###
+### Get user by id
+GET http://localhost:3000/auth/2
 
+### Get user by email
+GET http://localhost:3000/auth?email=test@gmail.com
+
+### Delete a user
+DELETE http://localhost:3000/auth/1
+
+### Update a user
+PATCH http://localhost:3000/auth/2
+Content-Type: application/json
+
+{
+  "email": "NOTTEST@gmail.com"
+}
