@@ -6,12 +6,20 @@ import {
 } from "@nestjs/common";
 import {Observable} from "rxjs";
 import {map} from "rxjs/operators";
-import {UserDto} from "../users/dtos/user.dto";
 import {plainToClass} from "class-transformer";
+
+export function Serialize(dto: classConstructor) {
+  return UseInterceptors(new SerializeInterceptor(dto));
+}
+
+// просто заглушка имитирующая, что тип dto - объект
+interface classConstructor {
+  new (...args: any[]) : {};
+}
 
 export class SerializeInterceptor implements NestInterceptor {
 
-  constructor(private dto: any) {}
+  constructor(private dto: classConstructor) {}
 
   intercept(context: ExecutionContext, handler: CallHandler): Observable<any> {
     // Run before request is handled by the request handler

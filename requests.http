@@ -3,7 +3,7 @@ POST http://localhost:3000/auth/signup
 Content-Type: application/json
 
 {
-  "email": "test@gmail.com",
+  "email": "test1@gmail.com",
   "password": "qwerty"
 }
 
@@ -11,7 +11,7 @@ Content-Type: application/json
 GET http://localhost:3000/auth/2
 
 ### Get user by email
-GET http://localhost:3000/auth?email=test@gmail.com
+GET http://localhost:3000/auth?email=test1@gmail.com
 
 ### Delete a user
 DELETE http://localhost:3000/auth/1
