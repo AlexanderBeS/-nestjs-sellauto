@@ -3,9 +3,27 @@ POST http://localhost:3000/auth/signup
 Content-Type: application/json
 
 {
-  "email": "test1@gmail.com",
+  "email": "test2@gmail.com",
   "password": "qwerty"
 }
+
+### Login a user
+POST http://localhost:3000/auth/signin
+Content-Type: application/json
+
+{
+  "email": "test2@gmail.com",
+  "password": "qwerty"
+}
+
+### Get user by cookie
+GET http://localhost:3000/auth/me
+
+### Get whoami
+GET http://localhost:3000/auth/whoami
+
+### Signout
+POST http://localhost:3000/auth/signout
 
 ### Get user by id
 GET http://localhost:3000/auth/2
@@ -23,3 +41,11 @@ Content-Type: application/json
 {
   "email": "NOTTEST@gmail.com"
 }
+
+
+###SESSIONS
+### Set color
+GET http://localhost:3000/auth/colors/red
+
+### Get colors
+GET http://localhost:3000/auth/colors
