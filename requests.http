@@ -22,7 +22,7 @@ GET http://localhost:3000/auth/me
 ### Get whoami
 GET http://localhost:3000/auth/whoami
 
-### Signout
+### SignOut
 POST http://localhost:3000/auth/signout
 
 ### Get user by id
