@@ -23,19 +23,8 @@ export class UsersController {
 
   constructor(private usersService: UsersService, private authService: AuthService) {}
 
-  @Get('/colors/:color')
-  setColor(@Param('color') color:string, @Session() session: any) {
-    session.color = color;
-  }
-
-  @Get('/colors')
-  getColor(@Session() session: any) {
-    return session.color;
-  }
-
   @Post('/signup')
   async createUser(@Body() body: CreateUserDto, @Session() session: any) {
-    //this.usersService.create(body.email, body.password)
     const user = await this.authService.signup(body.email, body.password);
     session.userId = user.id;
     return user;

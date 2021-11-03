@@ -41,11 +41,3 @@ Content-Type: application/json
 {
   "email": "NOTTEST@gmail.com"
 }
-
-
-###SESSIONS
-### Set color
-GET http://localhost:3000/auth/colors/red
-
-### Get colors
-GET http://localhost:3000/auth/colors
