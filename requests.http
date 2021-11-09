@@ -41,3 +41,18 @@ Content-Type: application/json
 {
   "email": "NOTTEST@gmail.com"
 }
+
+###
+POST http://localhost:3000/reports
+Content-Type: application/json
+
+{
+  "price": 8000,
+  "make": "toyota",
+  "model": "corolla",
+  "year": 2008,
+  "lng": 0,
+  "lat": 0,
+  "mileage": 135000
+}
+
