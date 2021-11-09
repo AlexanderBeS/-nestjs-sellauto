@@ -26,6 +26,9 @@ export class ReportDto {
   @Expose()
   mileage: number;
 
+  @Expose()
+  approved: boolean;
+
   @Transform(({ obj }) => obj.user.id) //obj -> весь объект. obj.user -> конкретно user по связи.
   @Expose()
   userId: number;

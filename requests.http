@@ -42,7 +42,7 @@ Content-Type: application/json
   "email": "NOTTEST@gmail.com"
 }
 
-###
+### Create a report
 POST http://localhost:3000/reports
 Content-Type: application/json
 
@@ -54,5 +54,13 @@ Content-Type: application/json
   "lng": 0,
   "lat": 0,
   "mileage": 135000
+}
+
+### Approve an existing report
+PATCH http://localhost:3000/reports/4
+Content-Type: application/json
+
+{
+"approved": true
 }
 

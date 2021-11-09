@@ -27,6 +27,9 @@ export class Report {
   @Column()
   mileage: number;
 
+  @Column( { default: false })
+  approved: boolean;
+
   //создаст новую колонку с user_id
   @ManyToOne(() => User, (user) => user.reports)
   user: User;
