@@ -19,17 +19,18 @@ const cookieSession = require('cookie-session');
     }),
     UsersModule,
     ReportsModule,
-    TypeOrmModule.forRootAsync({
-      inject: [ConfigService],
-      useFactory: (config: ConfigService) => {
-        return {
-          type: 'sqlite',
-          database: config.get<string>('DB_NAME'),
-          entities: [User, Report],
-          synchronize: true
-        }
-      }
-    })
+    TypeOrmModule.forRoot()
+    // TypeOrmModule.forRootAsync({
+    //   inject: [ConfigService],
+    //   useFactory: (config: ConfigService) => {
+    //     return {
+    //       type: 'sqlite',
+    //       database: config.get<string>('DB_NAME'),
+    //       entities: [User, Report],
+    //       synchronize: true //сверяет модели с фактической таблицей в БД. Удаляет/создаёт поля динамически.
+    //     }
+    //   }
+    // })
     // TypeOrmModule.forRoot({
     //   type: 'sqlite',
     //   database: 'db.sqlite',
@@ -49,11 +50,14 @@ const cookieSession = require('cookie-session');
   ],
 })
 export class AppModule {
+
+  constructor(private configService: ConfigService) {}
+
   configure(consumer: MiddlewareConsumer) {
     consumer
       .apply(
         cookieSession({
-          keys: ['fgfgj']
+          keys: [this.configService.get('COOKIE_KEY')]
         }),
       )
       .forRoutes('*')
